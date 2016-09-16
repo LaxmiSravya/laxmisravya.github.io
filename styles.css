@@ -1,0 +1,35 @@
+body {
+    background-color: LightPink;
+}
+h1 {
+    color: black;
+
+    font-family: sans-serif;
+    font-size: 300%;
+}
+h3
+{
+color: purple;
+
+    font-family: sans-serif;
+    font-size: 200%;
+}
+h4
+{
+color:brown;
+font-family: Times new roman;
+font-size:150%;
+
+}
+
+p {
+    color: red;
+font-family: courier;
+    font-size: 200%;
+border: 0.5px solid black;
+    margin: 20px;
+     align="justified";
+     hspace=15;
+
+
+}

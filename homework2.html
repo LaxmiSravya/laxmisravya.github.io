@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<title>Birthday card</title>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+ <h1><i> Enter your sisters name:</i> <input type="text" id="nametext" oninput="custom()"> </h1> 
+<p style="float:left;"><img src="./cake.jpg" height=300,width=250 hspace="15"></p>
+<p style="float:right;"><img src="./balloons.png" height=250,width=300 hspace="15"></p>
+<p align="justify"><font size="4">May all your wishes come true and hope you have a day thats as special as you my dear sister! May god bless you with lots of love,happiness and success. 
+
+Sometimes,i wonder what would my life be without you. I wouldn't have someone to listen to me, i wouldnt have someone to wipe off my tears nor would there be someone to watch my back.I cannot live without you even in my dreams.May you live forever my partner in crime :P </p>
+
+<p style="float:left;"><img src="./heart.jpg" height=150,width=150 ></p>
+
+<p style="float:right;"><img src="./heart.jpg" height=150,width=150 ></p>
+<h3 align="center"> Wish you many many happy returns of the day <label id="name"></lable> </h3>
+
+<script>
+function custom()
+{
+   var i=document.getElementById("nametext").value;
+   document.getElementById("name").textContent=" "+i+" "+":)";
+}
+</script>
+<h4 align="center";> From :
+<br> 
+Your Loving Sister</h4>
