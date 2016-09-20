@@ -1,0 +1,21 @@
+form
+{
+width:500px;
+position:center;
+top:200px;
+margin: 0 auto;
+}
+input[type="text"]
+{
+	width: 400px;
+	height: 40px;
+ }
+ input[type="submit"]
+{
+	 width: 100px;
+	 height:40px;
+	 position:center;
+	 left:150px;
+	 font-size:20px;
+         
+}
