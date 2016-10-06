@@ -47,17 +47,17 @@ var turn = 'white';
 var white;
 var black;
 
-function loadGrid()
+function grid_load()
 {
-	printGrid();
+	print_Grid();
 	addEvents();
-	checkerslbl = document.getElementById('checkerslbl');
-	checkerslbl.style.position = "relative";
+	checkers = document.getElementById('checkers');
+	checkers.style.position = "relative";
 }
 
-function printGrid()
+function print_Grid()
 {
-	var board = document.getElementById('gamegrid');
+	var board = document.getElementById('gridgame');
 	var html = "<table class='grid'>";
 
 	for (var i = 0; i < grid.length; i++)
@@ -123,7 +123,7 @@ function reset()
 function whiteQuit() {
 	var whitePlayerName = document.getElementById('white').innerHTML;
 	var blackPlayerName = document.getElementById('black').innerHTML;
-	alert(blackPlayerName +' surrendered, '+ whitePlayerName +' wins!');
+	alert(whitePlayerName +' surrendered, '+ blackPlayerName +' wins!');
 	location.reload(true);
 }
 function blackQuit() {
@@ -135,16 +135,16 @@ function blackQuit() {
 
 function addEvents()
 {
-	var gridDiv = document.getElementById('gamegrid');
+	var gridDiv = document.getElementById('gridgame');
 	var tds = gridDiv.getElementsByTagName('td');
 
 	for (var i = 0; i < tds.length; i++)
 	{
-		tds[i].onclick = movePiece;
+		tds[i].onclick = move_Piece;
 	}
 }
 
-function movePiece()
+function move_Piece()
 {
 	cell = this;
 	x = cell.cellIndex;
@@ -160,7 +160,7 @@ function movePiece()
 		gridPiece.occupied = "";
 
 		cell.innerHTML = "<div id=''></div>";
-		cell.onclick = movePiece;
+		cell.onclick = move_Piece;
 	}
 	else if (selected.occupied.indexOf('white') != -1)
 	{
@@ -173,7 +173,7 @@ function movePiece()
 		if ((x == selected.x-1 || x == selected.x+1) && (y == selected.y+1) && (gridPiece.occupied == ""))
 		{
 			cell.innerHTML = "<div id=" + selected.occupied + "></div>";
-			cell.onclick = movePiece;
+			cell.onclick = move_Piece;
 			gridPiece.occupied = selected.occupied;
 			gridPiece.king = selected.king;
 			selected.occupied = "";
@@ -189,18 +189,18 @@ function movePiece()
 			{
 				jumpedCell = getGridCell(x+1, y-1);
 				cell.innerHTML = "<div id=" + selected.occupied + "></div>";
-				cell.onclick = movePiece;
+				cell.onclick = move_Piece;
 				gridPiece.occupied = selected.occupied;
 				gridPiece.king = selected.king;
 				jumped.occupied = "";
 				jumpedCell.innerHTML = "<div id=''></div>";
-				jumpedCell.onclick = movePiece;
+				jumpedCell.onclick = move_Piece;
 				selected.occupied = "";
 				selected.king = false;
 				selected.x = 0;
 				selected.y = 0;
 				turn = 'black';
-				gameFinished();
+				game_Finished();
 			}
 		}//Jump right
 		else if ((x == selected.x+2) && (y == selected.y+2) && (gridPiece.occupied == ""))
@@ -210,18 +210,18 @@ function movePiece()
 			{
 				jumpedCell = getGridCell(x-1, y-1);
 				cell.innerHTML = "<div id=" + selected.occupied + "></div>";
-				cell.onclick = movePiece;
+				cell.onclick = move_Piece;
 				gridPiece.occupied = selected.occupied;
 				gridPiece.king = selected.king;
 				jumped.occupied = "";
 				jumpedCell.innerHTML = "<div id=''></div>";
-				jumpedCell.onclick = movePiece;
+				jumpedCell.onclick = move_Piece;
 				selected.occupied = "";
 				selected.king = false;
 				selected.x = 0;
 				selected.y = 0;
 				turn = 'black';
-				gameFinished();
+				game_Finished();
 			}
 		}//Drop checker
 		else if (x == selected.x && y == selected.y)
@@ -234,12 +234,12 @@ function movePiece()
 			selected.y = 0;
 
 			cell.innerHTML = "<div id=" + gridPiece.occupied + "></div>";
-			cell.onclick = movePiece;
+			cell.onclick = move_Piece;
 		}//Move king
 		else if ((x == selected.x-1 || x == selected.x+1) && (y == selected.y-1) && (gridPiece.occupied == "") && selected.king)
 		{
 			cell.innerHTML = "<div id=" + selected.occupied + "></div>";
-			cell.onclick = movePiece;
+			cell.onclick = move_Piece;
 			gridPiece.occupied = selected.occupied;
 			gridPiece.king = selected.king;
 			selected.occupied = "";
@@ -255,18 +255,18 @@ function movePiece()
 			{
 				jumpedCell = getGridCell(x+1, y+1);
 				cell.innerHTML = "<div id=" + selected.occupied + "></div>";
-				cell.onclick = movePiece;
+				cell.onclick = move_Piece;
 				gridPiece.occupied = selected.occupied;
 				gridPiece.king = selected.king
 				jumped.occupied = "";
 				jumpedCell.innerHTML = "<div id=''></div>";
-				jumpedCell.onclick = movePiece;
+				jumpedCell.onclick = move_Piece;
 				selected.occupied = "";
 				selected.king = false;
 				selected.x = 0;
 				selected.y = 0;
 				turn = 'black';
-				gameFinished();
+				game_Finished();
 			}
 		}//Jump right king
 		else if ((x == selected.x+2) && (y == selected.y-2) && (gridPiece.occupied == "") && selected.king)
@@ -276,18 +276,18 @@ function movePiece()
 			{
 				jumpedCell = getGridCell(x-1, y+1);
 				cell.innerHTML = "<div id=" + selected.occupied + "></div>";
-				cell.onclick = movePiece;
+				cell.onclick = move_Piece;
 				gridPiece.occupied = selected.occupied;
 				gridPiece.king = selected.king;
 				jumped.occupied = "";
 				jumpedCell.innerHTML = "<div id=''></div>";
-				jumpedCell.onclick = movePiece;
+				jumpedCell.onclick = move_Piece;
 				selected.occupied = "";
 				selected.king = false;
 				selected.x = 0;
 				selected.y = 0;
 				turn = 'black';
-				gameFinished();
+				game_Finished();
 			}
 		}
 	}
@@ -302,7 +302,7 @@ function movePiece()
 		if ((x == selected.x-1 || x == selected.x+1) && (y == selected.y-1) && (gridPiece.occupied == ""))
 		{
 			cell.innerHTML = "<div id=" + selected.occupied + "></div>";
-			cell.onclick = movePiece;
+			cell.onclick = move_Piece;
 			gridPiece.occupied = selected.occupied;
 			gridPiece.king = selected.king;
 			selected.occupied = "";
@@ -318,18 +318,18 @@ function movePiece()
 			{
 				jumpedCell = getGridCell(x+1, y+1);
 				cell.innerHTML = "<div id=" + selected.occupied + "></div>";
-				cell.onclick = movePiece;
+				cell.onclick = move_Piece;
 				gridPiece.occupied = selected.occupied;
 				gridPiece.king = selected.king
 				jumped.occupied = "";
 				jumpedCell.innerHTML = "<div id=''></div>";
-				jumpedCell.onclick = movePiece;
+				jumpedCell.onclick = move_Piece;
 				selected.occupied = "";
 				selected.king = false;
 				selected.x = 0;
 				selected.y = 0;
 				turn = 'white';
-				gameFinished();
+				game_Finished();
 			}
 		}//Jump right
 		else if ((x == selected.x+2) && (y == selected.y-2) && (gridPiece.occupied == ""))
@@ -339,18 +339,18 @@ function movePiece()
 			{
 				jumpedCell = getGridCell(x-1, y+1);
 				cell.innerHTML = "<div id=" + selected.occupied + "></div>";
-				cell.onclick = movePiece;
+				cell.onclick = move_Piece;
 				gridPiece.occupied = selected.occupied;
 				gridPiece.king = selected.king;
 				jumped.occupied = "";
 				jumpedCell.innerHTML = "<div id=''></div>";
-				jumpedCell.onclick = movePiece;
+				jumpedCell.onclick = move_Piece;
 				selected.occupied = "";
 				selected.king = false;
 				selected.x = 0;
 				selected.y = 0;
 				turn = 'white';
-				gameFinished();
+				game_Finished();
 			}
 		}//Drop checker
 		else if (x == selected.x && y == selected.y)
@@ -363,12 +363,12 @@ function movePiece()
 			selected.y = 0;
 
 			cell.innerHTML = "<div id=" + gridPiece.occupied + "></div>";
-			cell.onclick = movePiece;
+			cell.onclick = move_Piece;
 		}//Move king
 		else if ((x == selected.x-1 || x == selected.x+1) && (y == selected.y+1) && (gridPiece.occupied == "") && selected.king)
 		{
 			cell.innerHTML = "<div id=" + selected.occupied + "></div>";
-			cell.onclick = movePiece;
+			cell.onclick = move_Piece;
 			gridPiece.occupied = selected.occupied;
 			gridPiece.king = selected.king;
 			selected.occupied = "";
@@ -384,18 +384,18 @@ function movePiece()
 			{
 				jumpedCell = getGridCell(x+1, y-1);
 				cell.innerHTML = "<div id=" + selected.occupied + "></div>";
-				cell.onclick = movePiece;
+				cell.onclick = move_Piece;
 				gridPiece.occupied = selected.occupied;
 				gridPiece.king = selected.king;
 				jumped.occupied = "";
 				jumpedCell.innerHTML = "<div id=''></div>";
-				jumpedCell.onclick = movePiece;
+				jumpedCell.onclick = move_Piece;
 				selected.occupied = "";
 				selected.king = false;
 				selected.x = 0;
 				selected.y = 0;
 				turn = 'white';
-				gameFinished();
+				game_Finished();
 			}
 		}//Jump right king
 		else if ((x == selected.x+2) && (y == selected.y+2) && (gridPiece.occupied == "") && selected.king)
@@ -405,27 +405,27 @@ function movePiece()
 			{
 				jumpedCell = getGridCell(x-1, y-1);
 				cell.innerHTML = "<div id=" + selected.occupied + "></div>";
-				cell.onclick = movePiece;
+				cell.onclick = move_Piece;
 				gridPiece.occupied = selected.occupied;
 				gridPiece.king = selected.king;
 				jumped.occupied = "";
 				jumpedCell.innerHTML = "<div id=''></div>";
-				jumpedCell.onclick = movePiece;
+				jumpedCell.onclick = move_Piece;
 				selected.occupied = "";
 				selected.king = false;
 				selected.x = 0;
 				selected.y = 0;
 				turn = 'white';
-				gameFinished();
+				game_Finished();
 			}
 		}
 	}
 }
 
-function gameFinished()
+function game_Finished()
 {
 	var white_exists = false;
-	var red_exists = false;
+	var black_exists = false;
 	for (var i = 0; i < grid.length; i++)
 	{
 		if (grid[i].occupied == 'checker-white' || grid[i].occupied == 'king-white')
@@ -434,7 +434,7 @@ function gameFinished()
 		}
 		else if (grid[i].occupied == 'checker-black' || grid[i].occupied == 'king-black')
 		{
-			red_exists = true;
+			black_exists = true;
 		}
 	}
 
@@ -443,7 +443,7 @@ function gameFinished()
 		alert('Black Wins!');
 		location.reload(true);
 	}
-	else if (!red_exists)
+	else if (!black_exists)
 	{
 		alert('White Wins!');
 		location.reload(true);
@@ -465,7 +465,7 @@ function getGridPiece(x, y)
 
 function getGridCell(x, y)
 {
-	var board = document.getElementById('gamegrid');
+	var board = document.getElementById('gridgame');
 	var gridTable = board.getElementsByTagName('table');
 	return gridTable[0].rows[y].cells[x];
 }
