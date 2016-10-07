@@ -1,19 +1,19 @@
 <html>
 	<head>
 		<title>Let's play Checkers</title>
-		<script type='text/javascript' src='/grid.js'></script>
-		<link rel='stylesheet' type='text/css' href='/gamegrid.css' />
+		<script type='text/javascript' src='js/grid.js'></script>
+		<link rel='stylesheet' type='text/css' href='css/gamegrid.css' />
 	</head>
-	<body onload='grid_load()' style="background-color: #F5DEB3">
+	<body  onload='grid_load()' style="background-image:url(img/checker.jpg)">
 		<h2 id='checkers'>CHECKERS</h2>
 		<div id='whiteplayer'><b>White Player's name: </b><input id='whitename' ></input><button type='button' onclick='setName("white")'>Submit</button>
 		</div><br>
 		<div id='gridgame'></div>
 		<div id='location'></div>
 		<div id='blackplayer'><br/><b>Black Player's name:</b> <input id='blackname' ></input><button type='button' onclick='setName("black")'>Submit</button></div>
-		<input type="image" id="reset" style="height:75px;width:75px;" src="/reset.jpg" onclick='reset()' title='Reset layout' />
-		<input type="image" id="blackquit" style="height:75px;width:75px;" src="/blackquit.jpg" onclick='blackQuit()' title='Black quits'/>
-		<input type="image" id="whitequit" style="height:75px;width:75px;" src="/whitequit.jpg" onclick='whiteQuit()' title='White quits'/>
+		<input type="image" id="reset" style="height:75px;width:75px;" src="img/reset.jpg" onclick='reset()' title='Reset layout' />
+		<input type="image" id="blackquit" style="height:75px;width:75px;" src="img/blackquit.jpg" onclick='blackQuit()' title='Black quits'/>
+		<input type="image" id="whitequit" style="height:75px;width:75px;" src="img/whitequit.jpg" onclick='whiteQuit()' title='White quits'/>
 	</body>
 </html>
 
