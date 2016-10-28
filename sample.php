@@ -1,6 +1,6 @@
 // Get current year, month and day
 
-list($iNowYear, $iNowMonth, $iNowDay) = explode('-', date('Y-m-d'));
+list($iThisYear, $iThisMonth, $iThisDay) = explode('-', date('Y-m-d'));
 
 // Get current year and month depending on possible GET parameters
 
@@ -19,59 +19,59 @@ list($iMonth, $iYear) = explode('-', date('n-Y'));
 
 // Get name and number of days of specified month
 
-$iTimestamp = mktime(0, 0, 0, $iMonth, $iNowDay, $iYear);
+$iTimestamp = mktime(0, 0, 0, $iMonth, $iThisDay, $iYear);
 
-list($sMonthName, $iDaysInMonth) = explode('-', date('F-t', $iTimestamp));
+list($sMonth_Name, $iDays_In_Month) = explode('-', date('F-t', $iTimestamp));
 
 // Get previous year and month
 
-$iPrevYear = $iYear;
+$iPrev_Year = $iYear;
 
-$iPrevMonth = $iMonth - 1;
+$iPrev_Month = $iMonth - 1;
 
-if ($iPrevMonth <= 0) {
+if ($iPrev_Month <= 0) {
 
-$iPrevYear--;
+$iPrev_Year--;
 
-$iPrevMonth = 12; // set to December
+$iPrev_Month = 12; // set to December
 
 }
 
 // Get next year and month
 
-$iNextYear = $iYear;
+$iNext_Year = $iYear;
 
-$iNextMonth = $iMonth + 1;
+$iNext_Month = $iMonth + 1;
 
-if ($iNextMonth > 12) {
+if ($iNext_Month > 12) {
 
-$iNextYear++;
+$iNext_Year++;
 
-$iNextMonth = 1;
+$iNext_Month = 1;
 
 }
 
 // Get number of days of previous month
 
-$iPrevDaysInMonth = (int)date('t', mktime(0, 0, 0, $iPrevMonth, $iNowDay, $iPrevYear));
+$iPrevDays_In_Month = (int)date('t', mktime(0, 0, 0, $iPrev_Month, $iThisDay, $iPrev_Year));
 
 // Get numeric representation of the day of the week of the first day of specified (current) month
 
-$iFirstDayDow = (int)date('w', mktime(0, 0, 0, $iMonth, 1, $iYear));
+$iFirst_Day = (int)date('w', mktime(0, 0, 0, $iMonth, 1, $iYear));
 
 // On what day the previous month begins
 
-$iPrevShowFrom = $iPrevDaysInMonth - $iFirstDayDow + 1;
+$iShow_Prev_From = $iPrevDays_In_Month - $iFirst_Day + 1;
 
 // If previous month
 
-$bPreviousMonth = ($iFirstDayDow > 0);
+$bPrevious_Month = ($iFirst_Day > 0);
 
 // Initial day
 
-$iCurrentDay = ($bPreviousMonth) ? $iPrevShowFrom : 1;
+$iCurrent_Day = ($bPrevious_Month) ? $iShow_Prev_From : 1;
 
-$bNextMonth = false;
+$bNext_Month = false;
 
 $sCalTblRows = '';
 
@@ -85,35 +85,35 @@ for ($j = 0; $j < 7; $j++) { // 7 days a week
 
 $sClass = '';
 
-if ($iNowYear == $iYear && $iNowMonth == $iMonth && $iNowDay == $iCurrentDay && !$bPreviousMonth && !$bNextMonth) {
+if ($iThisYear == $iYear && $iThisMonth == $iMonth && $iThisDay == $iCurrent_Day && !$bPrevious_Month && !$bNext_Month) {
 
 $sClass = 'today';
 
-} elseif (!$bPreviousMonth && !$bNextMonth) {
+} elseif (!$bPrevious_Month && !$bNext_Month) {
 
 $sClass = 'current';
 
 }
 
-$sCalTblRows .= '<td class="'.$sClass.'"><a href="javascript: void(0)">'.$iCurrentDay.'</a></td>';
+$sCalTblRows .= '<td class="'.$sClass.'"><a href="javascript: void(0)">'.$iCurrent_Day.'</a></td>';
 
 // Next day
 
-$iCurrentDay++;
+$iCurrent_Day++;
 
-if ($bPreviousMonth && $iCurrentDay > $iPrevDaysInMonth) {
+if ($bPrevious_Month && $iCurrent_Day > $iPrevDays_In_Month) {
 
-$bPreviousMonth = false;
+$bPrevious_Month = false;
 
-$iCurrentDay = 1;
+$iCurrent_Day = 1;
 
 }
 
-if (!$bPreviousMonth && !$bNextMonth && $iCurrentDay > $iDaysInMonth) {
+if (!$bPrevious_Month && !$bNext_Month && $iCurrent_Day > $iDays_In_Month) {
 
-$bNextMonth = true;
+$bNext_Month = true;
 
-$iCurrentDay = 1;
+$iCurrent_Day = 1;
 
 }
 
@@ -127,11 +127,11 @@ $sCalTblRows .= '</tr>';
 
 $aKeys = array(
 
-'__prev_month__' => "{$iPrevMonth}-{$iPrevYear}",
+'__prev_month__' => "{$iPrev_Month}-{$iPrev_Year}",
 
-'__next_month__' => "{$iNextMonth}-{$iNextYear}",
+'__next_month__' => "{$iNext_Month}-{$iNext_Year}",
 
-'__cal_caption__' => $sMonthName . ', ' . $iYear,
+'__cal_caption__' => $sMonth_Name . ', ' . $iYear,
 
 '__cal_rows__' => $sCalTblRows,
 
@@ -158,3 +158,4 @@ $aVariables = array(
 );
 
 echo strtr(file_get_contents('/test.html'), $aVariables);
+
