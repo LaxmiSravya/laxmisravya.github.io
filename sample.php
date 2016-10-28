@@ -137,7 +137,7 @@ $aKeys = array(
 
 );
 
-$sCalendarItself = strtr(file_get_contents('templates/calendar.html'), $aKeys);
+$sCalendarItself = strtr(file_get_contents('./calendar.html'), $aKeys);
 
 // AJAX requests - return the calendar
 
@@ -157,4 +157,4 @@ $aVariables = array(
 
 );
 
-echo strtr(file_get_contents('templates/index.html'), $aVariables);
+echo strtr(file_get_contents('./test.html'), $aVariables);
