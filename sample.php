@@ -1,3 +1,4 @@
+<?php
 // Get current year, month and day
 
 list($iThisYear, $iThisMonth, $iThisDay) = explode('-', date('Y-m-d'));
@@ -137,7 +138,7 @@ $aKeys = array(
 
 );
 
-$sCalendarItself = strtr(file_get_contents('/calendar.html'), $aKeys);
+$sCalendarItself = strtr(file_get_contents('./calendar.html'), $aKeys);
 
 // AJAX requests - return the calendar
 
@@ -157,5 +158,5 @@ $aVariables = array(
 
 );
 
-echo strtr(file_get_contents('/test.html'), $aVariables);
-
+echo strtr(file_get_contents('./test.html'), $aVariables);
+?>

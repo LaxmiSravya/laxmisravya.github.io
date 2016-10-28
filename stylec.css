@@ -2,37 +2,40 @@
 
 #calendar {
 
+
 -moz-user-select: none;
 
-border: 1px solid #EEEEEE;
 
-border-radius: 6px 6px 6px 6px;
+border: 1px solid #D3D3D3;
 
-color: #333333;
+border-radius: 5px 5px 5px 5px;
 
-font-family: Arial,sans-serif;
+color: #FFFFFF;
 
-font-size: 1.1em;
+font-family: Times New Roman,sans-serif;
 
-margin: 10px auto;
+font-size: 1.5em;
 
-padding: 0.4em;
+margin: 6px auto;
 
-width: 90%;
+padding: 0.3em;
+
+width: 50%;
 
 }
 
 #calendar .navigation {
 
-background-color: #CC0000;
+background-color: #9932CC;
 
 border: 1px solid #E3A1A1;
 
-border-radius: 6px 6px 6px 6px;
+border-radius: 5px 5px 5px 5px;
 
 color: #FFFFFF;
 
 font-weight: bold;
+font-size: 150%;
 
 padding: 1px;
 
@@ -53,21 +56,25 @@ line-height: 1.8em;
 margin: 0 2.3em;
 
 text-align: center;
+}
 
 
 #calendar .navigation .prev, #calendar .navigation .next {
 
-background-image: url(/nav.png);
+background-image: url(./nav.png);
 
-height: 24px;
+
+height:25px;
+width:20px;
 
 opacity: 0.9;
 
 position: absolute;
 
-top: 4px;
+top:10px;
 
-width: 24px;
+
+
 
 }
 
@@ -75,7 +82,7 @@ width: 24px;
 
 background-position: 0 0;
 
-left: 4px;
+left: 5px;
 
 }
 
@@ -83,9 +90,9 @@ left: 4px;
 
 background-position: -24px 0;
 
-right: 4px;
+right: 25px;
 
-
+}
 
 #calendar .navigation .prev:hover, #calendar .navigation .next:hover {
 
@@ -127,11 +134,11 @@ padding: 1px;
 
 #calendar table td a {
 
-background-color: #EEEEEE;
+background-color: #D3D3D3;
 
-border: 1px solid #D8DCDF;
+border: 1px solid #DEB887;
 
-color: #004276;
+color: #0000CD;
 
 display: block;
 
@@ -141,7 +148,7 @@ opacity: 0.7;
 
 padding: 0.2em;
 
-text-align: right;
+text-align: center;
 
 text-decoration: none;
 
@@ -149,11 +156,11 @@ text-decoration: none;
 
 #calendar table td a:hover {
 
-background-color: #F6F6F6;
+background-color: #DCDCDC;
 
 border: 1px solid #CDD5DA;
 
-color: #111111;
+color: #fffff0;
 
 }
 
@@ -167,11 +174,11 @@ opacity: 1;
 
 #calendar table td.today a {
 
-background-color: #FBF8EE;
+background-color:#00FF00;
 
-border: 1px solid #FCD3A1;
+border: 1px solid #FFB6C1;
 
-color: #444444;
+color: #000000;
 
 font-weight: bold;
 
