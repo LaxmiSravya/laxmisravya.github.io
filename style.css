@@ -1,0 +1,156 @@
+body {
+    font-family: sans-serif;
+	background-image:url("background1.jpg");
+	background-color:cornsilk;
+}
+
+@font-face {
+    font-family:"Times New Roman", Times, serif;
+    
+}
+
+.dropdown {
+    color: #ec1313;
+    font-size: 25px;
+    border-radius: 5px;
+}
+
+/*.styled-select {
+   height: 35px;
+   overflow: hidden;
+   font-size:30px;
+   
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 35px;
+   height: 35px;
+   padding: 5px; 
+   
+}*/
+
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+#calender_section {
+    width: 700px;
+    margin: 30px auto 0;
+}
+
+    #calender_section .nav {
+        background-color: black; /* heading background*/
+        color: white; /* main heading*/
+        font-weight: normal;
+        position: relative; /* for the arrows*/
+    }
+
+.nav .head {
+    text-align: center; /*heading center*/
+}
+
+.nav .pre, .nav .next {
+    position: absolute;
+    top: 0px;
+    width: 50px;
+    font-size: 25px;
+    font-family: sans-serif;
+}
+
+#calender_section .pre {
+    left: 4px;
+	text-decoration: none;
+    color: white;
+}
+
+#calender_section .next {
+    right: 95px;
+    text-decoration: none;
+    color: white;
+}
+
+#calender_section_top {
+    width: 100%;
+    float: left;
+    background-color: #cc0000;
+	height:100%;
+}
+
+    #calender_section_top ul {
+        padding: 0;
+        list-style-type: none;
+    }
+
+        #calender_section_top ul li {
+            float: left;
+            display: block;
+            width: 99px;
+            height: 20px;
+            text-align: center;
+			font-size: 110%;
+			color: white;
+            font-family: Times new Roman, Verdana, sans-serif;
+			font-weight:bold;
+			
+        }
+
+#calender_section_bot {
+    width: 100%;
+    float: left;
+	border-left:1px solid #000; 
+	border-bottom:1px solid #000;
+    
+}
+
+    #calender_section_bot ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+        #calender_section_bot ul li {
+            float: left;
+            width: 99px;
+            height: 80px;
+            text-align: center;
+            min-height: 0;
+            background: none;
+            box-shadow: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+			border-top:1px solid #000; 
+			border-right:1px solid #000;
+        }
+
+            #calender_section_bot ul li span {
+                margin-top: 20px;
+                float: left;
+                margin-left: 34px;
+                text-align: center;
+                font-size: 25px;
+                font-family: sans-serif;
+            }
+
+.aqua {
+    background-color: khaki!important;
+    cursor: pointer;
+    
+}
+
+
+/*========== Hover Popup ===============*/
+/*.date_cell {
+    cursor: pointer;
+}
+
+    .date_cell:hover {
+        background:  white!important;
+        border-radius:70%;
+    }*/
+	.date_cell { cursor: pointer; cursor: hand; }
+.date_cell:hover { background: cornsilk !important; }
